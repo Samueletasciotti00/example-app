@@ -17,7 +17,7 @@
                     </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <p>Sei dentro la index di Admin</p>
                 </div>
             </div>
         </div>
