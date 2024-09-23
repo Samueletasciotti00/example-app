@@ -15,10 +15,27 @@
                 <li class="nav-item"><a href="{{ route('register') }}">Registrati</a></li>
 
                 @else
-                <li class="nav-item">
-                    <a href="#">
+
+                <!-- Menù drop down login -->
+                <li class="nav-item dropdown">
+
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+
+                        <!-- Print Dell'user name al login di esso  -->
                         {{ Auth::user()->name }}
                     </a>
+
+                    <!-- Voci del drop-down menù -->
+                    <div class="dropdown-menu dropdown-menu-right d-flex flex-column" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-menu-item text-danger" href="{{ route('admin.home') }}">Admin</a>
+                        <a class="dropdown-menu-item text-danger" href="{{ route('logout') }}" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">Logout</a>
+                    </div>
+
+                    <!-- Form di Log-out -->
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </li>
 
                 @endguest
