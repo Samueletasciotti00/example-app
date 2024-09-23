@@ -3,7 +3,7 @@
 
         <!-- Logo -->
         <div class="logo d-flex justify-content-around">
-            <!-- <img src="https://thumbs.dreamstime.com/b/libro-macchina-104465645.jpg" alt=""> -->
+            <i class="fa-solid fa-user-tie" style="color: #feffff; font-size: 30px;"></i>
             <a href="{{ route('home') }}">Vai al Sito</a>
         </div>
 
