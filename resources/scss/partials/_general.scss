@@ -10,6 +10,11 @@
 a{
     text-decoration: none;
     color: #ffffff;
+
+    // Hover 
+    &:hover{
+        text-decoration: underline;
+    }
 }
 
 
@@ -17,8 +22,7 @@ a{
 
 // Logo
 .logo{
-    width: 50px;
-    height: 40px;
+    width: 100px;
 }
 
 // Logo IMG
