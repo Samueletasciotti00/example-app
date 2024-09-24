@@ -23,6 +23,10 @@
     <!-- MAIN CONTENT -->
     <div id="main-view">
         @include('admin.partials.aside')
+
+    </div>
+
+    <div id="page">
         @yield('content')
     </div>
 
