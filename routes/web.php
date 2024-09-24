@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Guest\PageController;
+use App\Http\Controllers\Admin\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +25,11 @@ Route::middleware(['auth', 'verified'])
     ->name('admin.')
     ->group(function(){
         Route::get('/', [DashboardController::class, 'index'])->name('home');
-    });
 
+        // Project controller
+        Route::resource('project', ProjectController::class);
+    });
+    
 
 Route::middleware('auth')
 ->prefix('profile')
@@ -35,6 +39,9 @@ Route::middleware('auth')
     Route::patch('/', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+
 
 
 
