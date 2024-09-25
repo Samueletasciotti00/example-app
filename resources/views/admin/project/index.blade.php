@@ -27,7 +27,7 @@
                 <td>{{ $project->title }}</td>
                 <td>{{ $project->slug }}</td>
                 <td>{{ $project->description }}</td>
-                <td><button type="button" class="btn btn-outline-warning">TYPE</button>
+                <td><button type="button" class="btn btn-outline-warning">{{ $project->category?->name }}</button>
                 </td>
                 <td><a class="btn btn-primary" href="{{ route('admin.project.show', $project->id) }}">SHOW</a></td>
                 <td><a class="btn btn-success" href="{{ route('admin.project.edit', $project->id) }}">MODIFY</a></td>
