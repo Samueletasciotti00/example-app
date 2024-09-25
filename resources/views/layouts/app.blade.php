@@ -24,14 +24,15 @@
     <div id="main-view">
         @include('admin.partials.aside')
 
+        <div id="page">
+            @yield('content')
+        </div>
     </div>
 
-    <div id="page">
-        @yield('content')
-    </div>
+
 
     <!-- FOOTER -->
-    @include('admin.partials.footer')
+    <!-- @include('admin.partials.footer') -->
 </body>
 
 </html>

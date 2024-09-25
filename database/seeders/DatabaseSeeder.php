@@ -12,6 +12,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-       $this->call(ProjectSeeder::class);
+
+        // Scrivere per primo il Seeder delle categories dato che [ ProjectSeeder ] è in relazione con [ CategoryTableSeeder ];
+
+        $this->call([
+            
+            // Seeder data categorie;
+            CategoryTableSeeder::class,
+
+            // Seeder data progetti;
+            ProjectSeeder::class
+
+        ]);
     }
 }

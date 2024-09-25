@@ -23,7 +23,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('project.create');
     }
 
     /**
@@ -31,7 +31,14 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $project = new Project;
+
+        $project->title = $request->title;
+        $project->description = $request->description;
+
+        $project->save();
+
+        return redirect('/projects');
     }
 
     /**
@@ -48,7 +55,8 @@ class ProjectController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $project = Project::find($id);
+        return view('admin.project.edit', compact('project'));
     }
 
     /**
@@ -56,14 +64,21 @@ class ProjectController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $project = Project::find($id);
+        $project->title = $request->input('title');
+        $project->description = $request->input('description');
+        
+        $project->save();
+        return redirect("/admin/project")->with('success', 'Item updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Project $project)
     {
-        //
+        $project->delete();
+
+        return redirect()->route('admin.project.index')->with('delete', 'il progetto è stato eliminato');
     }
 }
